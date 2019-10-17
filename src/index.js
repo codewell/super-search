@@ -11,7 +11,6 @@ const superSearch = (searchString, searchObject) => {
   // Look for all the words one by one
   const words = searchString.split(' ');
   const stringifiedObject = stringifyObject(searchObject);
-
   const fullMatch = stringifiedObject.indexOf(squashString(searchString)) !== -1;
 
   return {
