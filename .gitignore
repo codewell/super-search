@@ -1,0 +1,4 @@
+.DS_Store
+.npmrc
+.env
+node_modules
