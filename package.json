@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "Filip Johansson",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^24.9.0"
   }
 }
