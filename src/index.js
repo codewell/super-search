@@ -1,6 +1,6 @@
-const stringifyObject = require('./stringifyObject');
-const numberOfMatches = require('./numberOfMatches');
-const squashString = require('./squashString');
+import stringifyObject from "./stringifyObject";
+import numberOfMatches from "./numberOfMatches";
+import squashString from "./squashString";
 
 /**
  * Super text serach function for JSON objects.
@@ -9,14 +9,15 @@ const squashString = require('./squashString');
  */
 const superSearch = (searchString, searchObject) => {
   // Look for all the words one by one
-  const words = searchString.split(' ');
+  const words = searchString.split(" ");
   const stringifiedObject = stringifyObject(searchObject);
-  const fullMatch = stringifiedObject.indexOf(squashString(searchString)) !== -1;
+  const fullMatch =
+    stringifiedObject.indexOf(squashString(searchString)) !== -1;
 
   return {
     fullMatch,
-    numberOfMatches: numberOfMatches(words, stringifiedObject)
+    numberOfMatches: numberOfMatches(words, stringifiedObject),
   };
 };
 
-module.exports = superSearch;
+export default superSearch;
