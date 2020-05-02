@@ -13,4 +13,4 @@ const numberOfMatches = (words, stringifiedObject) => {
   }, 0);
 };
 
-module.exports = numberOfMatches;
+export default numberOfMatches;

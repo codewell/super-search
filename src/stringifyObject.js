@@ -1,8 +1,8 @@
-const squashString = require('./squashString');
+const squashString = require("./squashString");
 
 /**
- * 
- * @param {*} obj 
+ *
+ * @param {*} obj
  */
 const stringifyObject = (obj) => {
   const objectString = JSON.stringify(obj);
@@ -10,4 +10,4 @@ const stringifyObject = (obj) => {
   return squashString(objectString);
 };
 
-module.exports = stringifyObject;
+export default stringifyObject;
