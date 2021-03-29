@@ -1,23 +1,44 @@
-import stringifyObject from "./stringifyObject";
 import numberOfMatches from "./numberOfMatches";
-import squashString from "./squashString";
+import {
+  resolveCompareString,
+  resolveSearchWords,
+  replaceString,
+  removeChar,
+} from "./stringUtils";
+
+const defaultOptions = {
+  ignore: [" "],
+  caseSensitive: false,
+};
 
 /**
  * Super text serach function for JSON objects.
  * Make everything into a string with no spaces
  * and search for any occurance.
  */
-const superSearch = (searchString, searchObject) => {
-  // Look for all the words one by one
-  const words = searchString.split(" ");
-  const stringifiedObject = stringifyObject(searchObject);
-  const fullMatch =
-    stringifiedObject.indexOf(squashString(searchString)) !== -1;
+const superSearch = (options = defaultOptions) => (
+  searchString,
+  searchObject,
+) => {
+  const resolvedOptions = {
+    ...defaultOptions,
+    ...options,
+  };
+
+  const stringifiedObject = resolveCompareString(resolvedOptions)(
+    JSON.stringify(searchObject),
+  );
 
   return {
-    fullMatch,
-    numberOfMatches: numberOfMatches(words, stringifiedObject),
+    fullMatch:
+      stringifiedObject.indexOf(
+        resolveCompareString(resolvedOptions)(searchString),
+      ) !== -1,
+    numberOfMatches: numberOfMatches(
+      resolveSearchWords(searchString),
+      stringifiedObject,
+    ),
   };
 };
 
-export default superSearch;
+export default { superSearch, replaceString, removeChar };
