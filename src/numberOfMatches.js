@@ -14,7 +14,5 @@ const matchReducer = (stringifiedObject) => (hits, word) => {
  * @param {string} stringifiedObject - All object values as a squashed string
  * @returns {number} - Number of matching words
  */
-const numberOfMatches = (words, stringifiedObject) =>
+export const numberOfMatches = (words, stringifiedObject) =>
   words.reduce(matchReducer(stringifiedObject), 0);
-
-export default numberOfMatches;

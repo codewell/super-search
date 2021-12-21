@@ -6,33 +6,19 @@
   "keywords": [],
   "author": "Filip Johansson",
   "license": "MIT",
+  "engines": {
+    "node": "~16"
+  },
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "test": "jest",
-    "build": "rollup --config",
-    "dry-release": "npm run build && npm pack"
+    "dist": "rollup ./src/index.js --file ./lib/index.js --format cjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^18.0.0",
-    "@rollup/plugin-node-resolve": "^11.2.1",
-    "@rollup/plugin-replace": "^2.3.2",
-    "husky": "^4.2.5",
-    "jest": "^25.5.4",
-    "lint-staged": "^10.2.2",
-    "prettier": "^2.0.5",
-    "rollup": "^2.7.6"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "jest": "^27.4.5",
+    "prettier": "^2.5.1",
+    "rollup": "^2.61.1"
   }
 }
